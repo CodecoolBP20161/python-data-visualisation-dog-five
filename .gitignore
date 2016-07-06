@@ -101,3 +101,9 @@ ENV/
 
 # Sample image
 sample-out.png
+
+# PyCharm stuff
+.idea
+
+# OSX stuff
+.DS_Store
