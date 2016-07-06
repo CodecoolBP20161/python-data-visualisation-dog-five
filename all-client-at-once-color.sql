@@ -1,0 +1,1 @@
+select company_name, main_color from project
