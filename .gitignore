@@ -107,3 +107,6 @@ sample-out.png
 
 # OSX stuff
 .DS_Store
+
+# DSN info
+login.txt
