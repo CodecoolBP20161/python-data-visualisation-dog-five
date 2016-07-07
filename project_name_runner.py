@@ -42,11 +42,21 @@ class ProjctNumberRunner:
         list_of_dict = []
         for i in self.valuta_change():
             font_size = i
-        x = 0
-        y = 200
-
+            print(font_size)
+        x_random_list = []
+        y_ranrom_list = []
+        counter = 0
         for row in self.project:
-
+            x = random.randint(0, 1000)
+            y = random.randint(0, 1000)
+            x_random_list.append(x)
+            y_ranrom_list.append(y)
+            if x in x_random_list or y in y_ranrom_list:
+                print("HAHOOOOOOOO!!!!!")
+                while x not in x_random_list and y not  in y_ranrom_list:
+                    x = random.randint(0, 1000)
+                    y = random.randint(0, 1000)
+                    counter += 1
             try:
                 value = row[3].lstrip('#')
             except AttributeError:
@@ -57,27 +67,19 @@ class ProjctNumberRunner:
             append_dict = {'text':(row[0]), 'fill':tuple(rgb_code),
                            'font': ImageFont.truetype("SourceSansPro-Regular.otf",  font_size),
                              'xy': (x, y)}
-            for h in range(len(append_dict)):
-                if y <= 1600:
-                    x += 35
-                    y += 35
-                elif y >= 1400:
-                    x -= 55
-                    y -= 75
 
             list_of_dict.append(append_dict)
         print(list(list_of_dict))
+        print(counter)
         return list(list_of_dict)
 
-# pl = ProjctNumberRunner('project-names.sql')
-# manager.create_tables('base_data.sql')
 valami = ProjctNumberRunner('project-names.sql')
 pic = valami.dict_to_image()
 
 Graphics.setup(mode="RGB", size=(1024, 1024), color="black")
 Graphics.make_image(pic, 'project-fall.png')
 
-# print(pl.dict_to_image())
+
 '''
 Just for test:
 #valuta_change()
