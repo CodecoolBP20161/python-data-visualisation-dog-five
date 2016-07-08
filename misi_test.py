@@ -11,11 +11,7 @@ db.create_tables("base_data.sql")
 data_list = db.run_query("due.sql")
 new_list = DueDate.time_converter(data_list)
 return_list = DueDate.make_dict(new_list)
-
-
-
-
-Graphics.setup(mode="RGBA", size=(13660, 7680), color=(255, 255, 255, 200))
+Graphics.setup(mode="RGB", size=(1024, 1024), color=(255, 255, 255))
 Graphics.make_image(return_list, "due.png")
 
 

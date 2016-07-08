@@ -15,18 +15,18 @@ manager.create_tables('base_data.sql')
 clients = manager.run_query('all-client-at-once.sql')
 clients_colors = manager.run_query('all-client-at-once-color.sql')
 
-Class AllClients:
-    '''Generate picture of all clients'''
-    def hex_to_rgb(clients, clients_colors):
-        clients_rgb = sorted([list(tup) for tup in clients_colors], key=lambda tup: tup[0])
-        for element in clients_rgb:
-            if element[1] is not None:
-                element[1] = element[1].lstrip("#")
-                element[1] = [int(v, 16)*17 for v in (char for char in element[1])]
-            else:
-                element[1] = [255, 255, 255]
-        # print(clients_rgb)
-        return clients_rgb
+
+'''Generate picture of all clients'''
+def hex_to_rgb(clients, clients_colors):
+    clients_rgb = sorted([list(tup) for tup in clients_colors], key=lambda tup: tup[0])
+    for element in clients_rgb:
+        if element[1] is not None:
+            element[1] = element[1].lstrip("#")
+            element[1] = [int(v, 16)*17 for v in (char for char in element[1])]
+        else:
+            element[1] = [255, 255, 255]
+    # print(clients_rgb)
+    return clients_rgb
 
 
 def rgb_dic(clients_rgb):
@@ -45,7 +45,7 @@ def rgb_dic(clients_rgb):
                             "text": i[0],
                             "fill": tuple(i[1])
                             })
-    print(dic_list)
+    #print(dic_list)
     return dic_list
 
 

@@ -52,8 +52,8 @@ class DueDate:
             new_xy = set()
 
             while True:
-                new_x = random.randint(0, 13660 - size_list[i][0])
-                new_y = random.randint(0, 7680 - size_list[i][1])
+                new_x = random.randint(0, 1500 - size_list[i][0])
+                new_y = random.randint(0,1500- size_list[i][1])
 
                 for j in range(new_x, new_x + size_list[i][0]):
                     for k in range(new_y, new_y + size_list[i][1]):

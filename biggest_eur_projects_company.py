@@ -16,7 +16,6 @@ class BiggestEurProjects:
         result = []
         font_size = 160
         for row in enumerate(self.project):
-            print(row)
             if row[0] % 2 == 1:
                 x = 500
             else:
@@ -45,8 +44,8 @@ class BiggestEurProjects:
             return RGB_list
 
 
-first = BiggestEurProjects('10-biggest-eur-projects-company.sql')
-pic = first.text_size()
-
-Graphics.setup(mode="RGBA", size=(1024, 1024), color="white")
-Graphics.make_image(pic, "10-biggest-eur-projects-company.png")
+# first = BiggestEurProjects('10-biggest-eur-projects-company.sql')
+# pic = first.text_size()
+#
+# Graphics.setup(mode="RGBA", size=(1024, 1024), color="white")
+# Graphics.make_image(pic, "10-biggest-eur-projects-company.png")
