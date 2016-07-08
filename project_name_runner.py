@@ -1,10 +1,10 @@
 import random
 from datamanager import DataManager
 from PIL import ImageFont
-from graphics import Graphics
 
-# first = 'project-names.sql'
+
 manager = DataManager()
+
 
 class ProjctNumberRunner:
     USD_to_EUR = 0.902580
@@ -12,7 +12,6 @@ class ProjctNumberRunner:
 
     def __init__(self, sql_string):
         self.project = manager.run_query(sql_string)
-
 
     def valuta_change(self):
         valuta_list = []
@@ -40,9 +39,6 @@ class ProjctNumberRunner:
     def dict_to_image(self):
         self.valuta_change()
         list_of_dict = []
-        # for i in self.valuta_change():
-        #     font_size = i
-        #
         for row in self.project:
             x = random.randint(0, 700)
             y = random.randint(0, 1000)
@@ -60,19 +56,3 @@ class ProjctNumberRunner:
 
             list_of_dict.append(append_dict)
         return list(list_of_dict)
-
-# valami = ProjctNumberRunner('project-names.sql')
-# pic = valami.dict_to_image()
-#
-# Graphics.setup(mode="RGB", size=(1024, 1024), color="black")
-# Graphics.make_image(pic, 'project-fall.png')
-
-
-'''
-Just for test:
-#valuta_change()
-#sending(first)
-#rgb_converter(first)
-#dict_to_immge(first)
-#print(valuta_change())
-'''
