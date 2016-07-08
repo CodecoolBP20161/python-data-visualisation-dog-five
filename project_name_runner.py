@@ -40,23 +40,13 @@ class ProjctNumberRunner:
     def dict_to_image(self):
         self.valuta_change()
         list_of_dict = []
-        for i in self.valuta_change():
-            font_size = i
-            print(font_size)
-        x_random_list = []
-        y_ranrom_list = []
-        counter = 0
+        # for i in self.valuta_change():
+        #     font_size = i
+        #
         for row in self.project:
-            x = random.randint(0, 1000)
+            x = random.randint(0, 700)
             y = random.randint(0, 1000)
-            x_random_list.append(x)
-            y_ranrom_list.append(y)
-            if x in x_random_list or y in y_ranrom_list:
-                print("HAHOOOOOOOO!!!!!")
-                while x not in x_random_list and y not  in y_ranrom_list:
-                    x = random.randint(0, 1000)
-                    y = random.randint(0, 1000)
-                    counter += 1
+            font_size = random.randint(15, 80)
             try:
                 value = row[3].lstrip('#')
             except AttributeError:
@@ -69,15 +59,13 @@ class ProjctNumberRunner:
                              'xy': (x, y)}
 
             list_of_dict.append(append_dict)
-        print(list(list_of_dict))
-        print(counter)
         return list(list_of_dict)
 
-valami = ProjctNumberRunner('project-names.sql')
-pic = valami.dict_to_image()
-
-Graphics.setup(mode="RGB", size=(1024, 1024), color="black")
-Graphics.make_image(pic, 'project-fall.png')
+# valami = ProjctNumberRunner('project-names.sql')
+# pic = valami.dict_to_image()
+#
+# Graphics.setup(mode="RGB", size=(1024, 1024), color="black")
+# Graphics.make_image(pic, 'project-fall.png')
 
 
 '''
